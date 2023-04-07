@@ -28,24 +28,24 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          repository: SagerNet/sing-box
-      - name: Add proxy providers
-        run: |
-          git config --global user.email "yangchuansheng33@gmail.com"
-          git config --global user.name "yangchuansheng"
-          cd ..
-          git clone https://github.com/qjebbs/sing-box sing-box.bak
-          cd sing-box.bak
-          COMMIT=$(git log --pretty=format:"%h-%s"|grep provider|awk -F "-" '{print $1}')
-          cd ../sing-box
-          git checkout dev
-          git remote add qjebbs https://github.com/qjebbs/sing-box
-          git fetch qjebbs
-          git cherry-pick $COMMIT || true
-          #git add mkdocs.yml
-          #git -c core.editor=true cherry-pick --continue
-          #sed -i "s/outbound := range r.outbounds/outbound := range r.outbounds.All()/g" route/router.go
-          sed -i "s/v.TLSAllowInsecure/true/g" common/link/vmess.go
+          repository: qjebbs/sing-box
+ #    - name: Add proxy providers
+ #      run: |
+ #        git config --global user.email "yangchuansheng33@gmail.com"
+ #        git config --global user.name "yangchuansheng"
+ #        cd ..
+ #        git clone https://github.com/qjebbs/sing-box sing-box.bak
+ #        cd sing-box.bak
+ #        COMMIT=$(git log --pretty=format:"%h-%s"|grep provider|awk -F "-" '{print $1}')
+ #        cd ../sing-box
+ #        git checkout dev
+ #        git remote add qjebbs https://github.com/qjebbs/sing-box
+ #        git fetch qjebbs
+ #        git cherry-pick $COMMIT || true
+ #        #git add mkdocs.yml
+ #        #git -c core.editor=true cherry-pick --continue
+ #        #sed -i "s/outbound := range r.outbounds/outbound := range r.outbounds.All()/g" route/router.go
+ #        sed -i "s/v.TLSAllowInsecure/true/g" common/link/vmess.go
       - name: Get latest go version
         id: version
         run: |
@@ -66,7 +66,7 @@ jobs:
           mkdir build
           pushd build
           go mod init build
-          go get -v github.com/sagernet/sing-box@$version
+          go get -v github.com/qjebbs/sing-box@$version
           popd
         continue-on-error: true
       - name: Run Test
@@ -80,24 +80,24 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          repository: SagerNet/sing-box
-      - name: Add proxy providers
-        run: |
-          git config --global user.email "yangchuansheng33@gmail.com"
-          git config --global user.name "yangchuansheng"
-          cd ..
-          git clone https://github.com/qjebbs/sing-box sing-box.bak
-          cd sing-box.bak
-          COMMIT=$(git log --pretty=format:"%h-%s"|grep provider|awk -F "-" '{print $1}')
-          cd ../sing-box
-          git checkout dev
-          git remote add qjebbs https://github.com/qjebbs/sing-box
-          git fetch qjebbs
-          git cherry-pick $COMMIT || true
-          #git add mkdocs.yml
-          #git -c core.editor=true cherry-pick --continue
-          #sed -i "s/outbound := range r.outbounds/outbound := range r.outbounds.All()/g" route/router.go
-          sed -i "s/v.TLSAllowInsecure/true/g" common/link/vmess.go
+          repository: qjebbs/sing-box
+#      - name: Add proxy providers
+#        run: |
+#          git config --global user.email "yangchuansheng33@gmail.com"
+#          git config --global user.name "yangchuansheng"
+#          cd ..
+#          git clone https://github.com/qjebbs/sing-box sing-box.bak
+#          cd sing-box.bak
+#          COMMIT=$(git log --pretty=format:"%h-%s"|grep provider|awk -F "-" '{print $1}')
+#          cd ../sing-box
+#          git checkout dev
+#          git remote add qjebbs https://github.com/qjebbs/sing-box
+#          git fetch qjebbs
+#          git cherry-pick $COMMIT || true
+#          #git add mkdocs.yml
+#          #git -c core.editor=true cherry-pick --continue
+#          #sed -i "s/outbound := range r.outbounds/outbound := range r.outbounds.All()/g" route/router.go
+#          sed -i "s/v.TLSAllowInsecure/true/g" common/link/vmess.go
       - name: Setup Go
         uses: actions/setup-go@v2
         with:
@@ -239,24 +239,24 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          repository: SagerNet/sing-box
-      - name: Add proxy providers
-        run: |
-          git config --global user.email "yangchuansheng33@gmail.com"
-          git config --global user.name "yangchuansheng"
-          cd ..
-          git clone https://github.com/qjebbs/sing-box sing-box.bak
-          cd sing-box.bak
-          COMMIT=$(git log --pretty=format:"%h-%s"|grep provider|awk -F "-" '{print $1}')
-          cd ../sing-box
-          git checkout dev
-          git remote add qjebbs https://github.com/qjebbs/sing-box
-          git fetch qjebbs
-          git cherry-pick $COMMIT || true
-          #git add mkdocs.yml
-          #git -c core.editor=true cherry-pick --continue
-          #sed -i "s/outbound := range r.outbounds/outbound := range r.outbounds.All()/g" route/router.go
-          sed -i "s/v.TLSAllowInsecure/true/g" common/link/vmess.go
+          repository: qjebbs/sing-box
+#      - name: Add proxy providers
+#        run: |
+#          git config --global user.email "yangchuansheng33@gmail.com"
+#          git config --global user.name "yangchuansheng"
+#          cd ..
+#          git clone https://github.com/qjebbs/sing-box sing-box.bak
+#          cd sing-box.bak
+#          COMMIT=$(git log --pretty=format:"%h-%s"|grep provider|awk -F "-" '{print $1}')
+#          cd ../sing-box
+#          git checkout dev
+#          git remote add qjebbs https://github.com/qjebbs/sing-box
+#          git fetch qjebbs
+#          git cherry-pick $COMMIT || true
+#          #git add mkdocs.yml
+#          #git -c core.editor=true cherry-pick --continue
+#          #sed -i "s/outbound := range r.outbounds/outbound := range r.outbounds.All()/g" route/router.go
+#          sed -i "s/v.TLSAllowInsecure/true/g" common/link/vmess.go
       - name: Get latest go version
         id: version
         run: |
